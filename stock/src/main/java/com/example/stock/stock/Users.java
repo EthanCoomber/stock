@@ -7,6 +7,8 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -24,20 +26,57 @@ public class Users {
 
     private long Id;
     private String username;
-    private LocalDate dateJoined;
+    private List<String> tickers;
 
     public Users(){
     }
 
-    public Users(Long Id, String username, LocalDate dateJoined){
+    public Users(Long Id, String username){
         this.Id = Id;
         this.username = username;
-        this.dateJoined = dateJoined;
     }
 
-    public Users(String username, LocalDate dateJoined){
+    public Users(String username){
         this.username = username;
-        this.dateJoined = dateJoined;
+    }
+
+    public Users(String username, List<String> tickers){
+        this.username = username;
+        this.tickers = tickers;
+    }
+
+    public List<String> getTickers() {
+        return tickers;
+    }
+
+    public void addTicker(String newTicker){
+        if(this.tickers == null){
+            this.tickers = new ArrayList<>(){
+                {
+                    add(newTicker);
+                }
+            };
+        } else {
+            this.tickers.add(newTicker);
+        }
+    }
+
+    public void deleteTickers(String oldTicker){
+        int index = -1;
+        for(int i = 0; i < this.tickers.size(); i++){
+            if(tickers.get(i).equals(oldTicker)){
+                index = i;
+            }
+        }
+        if(index == -1){
+            throw new IllegalStateException("ticker not found");
+        }
+
+        tickers.remove(index);
+    }
+
+    public void setTickers(List<String> tickers) {
+        this.tickers = tickers;
     }
 
     public long getId() {
@@ -56,20 +95,11 @@ public class Users {
         this.username = username;
     }
 
-    public LocalDate getDateJoined() {
-        return dateJoined;
-    }
-
-    public void setDateJoined(LocalDate dateJoined) {
-        this.dateJoined = dateJoined;
-    }
-
     @Override
     public String toString() {
         return "Users{ \n" +
                 "Id=" + Id +
                 ", \n username='" + username +
-                ", \n dateJoined=" + dateJoined +
                 "\n }";
     }
 }

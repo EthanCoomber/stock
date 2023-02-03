@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 @Configuration
 public class UsersConfig {
@@ -13,13 +13,12 @@ public class UsersConfig {
     CommandLineRunner commandLineRunner(UsersRepository repository){
         return args -> {
             Users test1 = new Users(
-                    "test1",
-                    LocalDate.now()
+                    "test1"
+
             );
 
             Users test2 = new Users(
-                    "test2",
-                    LocalDate.now()
+                    "test2"
             );
 
             repository.saveAll(
