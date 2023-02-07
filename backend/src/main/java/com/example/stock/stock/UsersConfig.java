@@ -14,7 +14,6 @@ public class UsersConfig {
         return args -> {
             Users test1 = new Users(
                     "test1"
-
             );
 
             Users test2 = new Users(
