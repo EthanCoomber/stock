@@ -5,7 +5,8 @@
   padding: 15px 0 0;
   margin-top: 10px;
   width: 40%;
-  margin: auto;
+  
+  left: 20%;
 }
 
 .form__field {
@@ -20,9 +21,11 @@
   background: transparent;
   transition: border-color 0.2s;
 }
+
 .form__field::placeholder {
   color: transparent;
 }
+
 .form__field:placeholder-shown ~ .form__label {
   font-size: 1.3rem;
   cursor: text;
@@ -67,10 +70,12 @@ body {
   color: #fff;
 }
 
+/* top is not used right now since the position is relative, 
+use the percentages to place it exactly where you want. */
 button {
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  position: relative;
+  left: 70%;
+  top: 40%;
   transform: translate(-50%, -50%);
   color: #11998e;
   text-decoration: none;

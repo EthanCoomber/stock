@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import UserComponent from './components/UserComponent';
+import UserService from './services/UserService';
 
 function App() {
   const [currTicker, setTicker] = useState("");
@@ -19,13 +20,15 @@ function App() {
   return (
     <div className="App">
         <UserComponent />
+        
         <span>
           <div className="form__group field">
             <input type="input" className="form__field" onChange={handleChange} placeholder="Name" name="name" id='name' required />
             <label htmlFor="name" className="form__label">Add Ticker</label>
           </div>
-          <button>Submit</button>
         </span>
+        <button onClick={() => {UserService.addTicker(currTicker, 1)}}>Submit</button>
+        
     </div>
   );
 }
