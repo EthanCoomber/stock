@@ -23,11 +23,19 @@ function App() {
         
         <span>
           <div className="form__group field">
-            <input type="input" className="form__field" onChange={handleChange} placeholder="Name" name="name" id='name' required />
-            <label htmlFor="name" className="form__label">Add Ticker</label>
+            <input type="input" className="form__field" onChange={handleChange} placeholder="Add" name="add" id='add' required />
+            <label htmlFor="add" className="form__label">Add Ticker</label>
           </div>
         </span>
         <button onClick={() => {UserService.addTicker(currTicker, 1)}}>Submit</button>
+
+        <span>
+          <div className="form__group field">
+            <input type="input" className="form__field_delete" onChange={handleChange} placeholder="Add" name="add" id='add' required />
+            <label htmlFor="add" className="form__label_delete">Add Ticker</label>
+          </div>
+        </span>
+        <button onClick={() => {UserService.deleteTicker(currTicker, 1)}}>Submit</button>
         
     </div>
   );

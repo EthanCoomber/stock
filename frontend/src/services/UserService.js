@@ -10,22 +10,20 @@ class UserService {
     
     addTicker(ticker, userId) {
         let url = "/" + userId + "/insert?ticker=" + ticker;
-        // let body = {
-        //     userId: userId,
-        //     ticker: ticker
-        // }
-        
-        console.log("put")
-        console.log(ticker);
         try {
-            
             axios.put(url, null)
-            .catch(function (error) {
-                // handle error
-                console.log(error.response.data);
-              });
           } catch (error) {
-            console.error(error.response.data);     // NOTE - use "error.response.data` (not "error")
+            console.error(error.response.data); 
+          }
+        
+    }
+
+    deleteTicker(ticker, userId) {
+        let url = "/" + userId + "/delete?ticker=" + ticker;
+        try {
+            axios.delete(url, null)
+          } catch (error) {
+            console.error(error.response.data); 
           }
         
     }
