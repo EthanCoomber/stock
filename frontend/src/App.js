@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import UserComponent from './components/UserComponent';
+import UserService from './services/UserService';
 
 function App() {
   const [currTicker, setTicker] = useState("");
@@ -26,7 +27,7 @@ function App() {
             <label htmlFor="name" className="form__label">Add Ticker</label>
           </div>
         </span>
-        <button>Submit</button>
+        <button onClick={() => {UserService.addTicker(currTicker, 1)}}>Submit</button>
         
     </div>
   );
