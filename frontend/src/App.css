@@ -187,3 +187,12 @@ button:hover::after {
 .form__field_delete:required, .form__field_delete:invalid {
   box-shadow: none;
 }
+
+.button_delete {
+  color: #c21e1e;
+  border: 2px solid #c21e1e;
+}
+.button_delete::before {
+  
+  background: #c21e1e;
+}

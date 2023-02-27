@@ -32,10 +32,10 @@ function App() {
         <span>
           <div className="form__group field">
             <input type="input" className="form__field_delete" onChange={handleChange} placeholder="Add" name="add" id='add' required />
-            <label htmlFor="add" className="form__label_delete">Add Ticker</label>
+            <label htmlFor="add" className="form__label_delete">Remove Ticker</label>
           </div>
         </span>
-        <button onClick={() => {UserService.deleteTicker(currTicker, 1)}}>Submit</button>
+        <button className='button_delete' onClick={() => {UserService.deleteTicker(currTicker, 1)}}>Delete</button>
         
     </div>
   );
