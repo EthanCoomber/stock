@@ -73,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Links Used
 https://stackoverflow.com/questions/57009371/access-to-xmlhttprequest-at-from-origin-localhost3000-has-been-blocked
 Helped figure out how to get the api to work since both the frontend and backend are running on localhost
+
+https://rapidapi.com/belchiorarkad-FqvHs2EDOtP/api/yh-finance-complete
+Provided the stock API

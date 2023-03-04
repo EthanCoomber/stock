@@ -27,6 +27,7 @@ class StockService {
         });
 
         console.log(output);
+        return output;
     }
 }
 

@@ -17,15 +17,22 @@ function App() {
     setGraphTick(event.target.value);
   }
 
-  function api_request(ticker, sdate, edate) {
-    let data = StockService.getData(ticker, sdate, edate);
+  let data
+  async function api_request(ticker, sdate, edate) {
+    data = await StockService.getData(ticker, sdate, edate);
+
+    let prices = [];
+
     console.log(data);
-    console.log(data);
+
+    data.forEach(element => prices.push(element.open));
+    
+    console.log(prices);
   }
 
   // useEffect(() => {
-    
-  // }, [currGraphTick]);
+  //   console.log(data)
+  // }, [data]);
 
   useEffect(() => {
     // console.log("testing input")
