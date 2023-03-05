@@ -76,3 +76,6 @@ Helped figure out how to get the api to work since both the frontend and backend
 
 https://rapidapi.com/belchiorarkad-FqvHs2EDOtP/api/yh-finance-complete
 Provided the stock API
+
+https://uber.github.io/react-vis/documentation/getting-started/installing-react-vis
+React-vis for creating graphs

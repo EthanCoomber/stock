@@ -15,7 +15,6 @@ class UserService {
           } catch (error) {
             console.error(error.response.data); 
           }
-        
     }
 
     deleteTicker(ticker, userId) {

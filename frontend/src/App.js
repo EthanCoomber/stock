@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+
 //import logo from './logo.svg';
 import './App.css';
 import UserComponent from './components/UserComponent';
 import UserService from './services/UserService';
 import StockService from './services/StockService';
+import GraphComponent from './components/GraphComponent';
 
 function App() {
   const [currTicker, setTicker] = useState("");
   const [currGraphTick, setGraphTick] = useState("");
+  const [vis, setVis] = useState("");
 
   const handleChange = (event) => {
     setTicker(event.target.value);
@@ -17,18 +20,28 @@ function App() {
     setGraphTick(event.target.value);
   }
 
-  let data
+  let prices = [];
+  let counter = 1;
   async function api_request(ticker, sdate, edate) {
-    data = await StockService.getData(ticker, sdate, edate);
 
-    let prices = [];
+    let fetched = await StockService.getData(ticker, sdate, edate);
 
-    console.log(data);
+    //console.log(fetched);
 
-    data.forEach(element => prices.push(element.open));
+    fetched.forEach(element => {
+      prices.push({x: counter, y: element.open})
+      counter++;
+    });
     
-    console.log(prices);
+    //console.log(prices);
   }
+
+  let finalPrices = prices;
+
+
+  useEffect(() => {
+    setVis(<GraphComponent data={finalPrices}/>)
+  }, [finalPrices]);
 
   // useEffect(() => {
   //   console.log(data)
@@ -66,6 +79,8 @@ function App() {
           </div>
         </span>
         <button className='button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
+        <GraphComponent data={finalPrices}/>
+       {/* {vis} */}
         
     </div>
   );
