@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import {XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, LineSeries} from 'react-vis';
+import '../node_modules/react-vis/dist/style.css';
 
 //import logo from './logo.svg';
 import './App.css';
 import UserComponent from './components/UserComponent';
 import UserService from './services/UserService';
 import StockService from './services/StockService';
-import GraphComponent from './components/GraphComponent';
+//import GraphComponent from './components/GraphComponent';
 
 function App() {
   const [currTicker, setTicker] = useState("");
   const [currGraphTick, setGraphTick] = useState("");
-  const [vis, setVis] = useState("");
+  const [pr, setPr] = useState([]);
 
   const handleChange = (event) => {
     setTicker(event.target.value);
@@ -33,24 +35,13 @@ function App() {
       counter++;
     });
     
-    //console.log(prices);
+    console.log(prices);
+    setPr([...prices])
+
+    return prices
   }
 
-  let finalPrices = prices;
-
-
-  useEffect(() => {
-    setVis(<GraphComponent data={finalPrices}/>)
-  }, [finalPrices]);
-
-  // useEffect(() => {
-  //   console.log(data)
-  // }, [data]);
-
-  useEffect(() => {
-    // console.log("testing input")
-    // console.log(currTicker)
-  }, [currTicker]);
+  //console.log(finalData)
 
   return (
     <div className="App">
@@ -79,7 +70,29 @@ function App() {
           </div>
         </span>
         <button className='button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
-        <GraphComponent data={finalPrices}/>
+        {/* <GraphComponent data={prices}/> */}
+        <XYPlot width={500} height={500}>
+          <HorizontalGridLines style={{stroke: '#B7E9ED'}} />
+          <VerticalGridLines style={{stroke: '#B7E9ED'}} />
+          <XAxis
+            title="X Axis"
+            style={{
+              line: {stroke: '#ADDDE1'},
+              ticks: {stroke: '#ADDDE1'},
+              text: {stroke: 'none', fontWeight: 600}
+            }}
+          />
+          <YAxis title="Y Axis" />
+          <LineSeries
+            className="first-series"
+            // data = {[{x: 1, y: 3}, {x: 2, y: 5}, {x: 3, y: 15}, {x: 4, y: 12}]}
+            data={pr}
+            style={{
+              strokeLinejoin: 'round',
+              strokeWidth: 4,
+            }}
+          />
+          </XYPlot>
        {/* {vis} */}
         
     </div>
