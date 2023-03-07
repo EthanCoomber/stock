@@ -9,6 +9,7 @@ class UserService {
     }
     
     addTicker(ticker, userId) {
+      console.log(ticker)
         let url = "/" + userId + "/insert?ticker=" + ticker;
         try {
             axios.put(url, null)

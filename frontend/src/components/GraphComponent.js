@@ -7,7 +7,7 @@ import '../../node_modules/react-vis/dist/style.css';
 export default function GraphComponent({
   data
 }){
-  console.log(data)
+  //console.log(data)
   return (
   <XYPlot width={500} height={500}>
   <HorizontalGridLines style={{stroke: '#B7E9ED'}} />
