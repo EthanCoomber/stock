@@ -8,8 +8,9 @@ export default function Login() {
     <div>
       <main>
         <h1>Login Page</h1>
-        <p>Accepted email tags are @email.com, @gmail.com, @yahoo.com</p>
-        <p>Password must be 6 characters long</p>
+        <button href="./profile">
+          Testing
+        </button>
         <div>
           <p>Email</p>
           <input
@@ -40,6 +41,7 @@ export default function Login() {
           />
           New User
         </p>
+        
         
         {/* Uncomment this to have the option to log in as a professor
         <p className={styles.login_boxes}>

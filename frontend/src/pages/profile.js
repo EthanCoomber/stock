@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import '../../node_modules/react-vis/dist/style.css';
 
 //import logo from './logo.svg';
-import '../App.css';
+import '../styles/App.css';
 import UserComponent from '../components/UserComponent';
 import UserService from '../services/UserService';
 import StockService from '../services/StockService';

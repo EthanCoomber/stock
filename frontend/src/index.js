@@ -1,18 +1,59 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import { useState } from "react";
+// import { useRouter } from "next/router";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export default function Login() {
+  
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  return (
+    <div>
+      <main>
+        <h1>Login Page</h1>
+        <button href="./profile">
+          Testing
+        </button>
+        <div>
+          <p>Email</p>
+          <input
+            type="text"
+            size="45"
+            value={"email"}
+            placeholder="email address"
+          />
+        </div>
+
+        <div>
+          <p>Password</p>
+          <input
+            type="password"
+            size="45"
+            value={"password"}
+            placeholder="password"
+            //onChange={(event) => setPassword(event.target.value)}
+            // onKeyUp={handleKeyDown}
+          />
+        </div>
+
+        <p>
+          <input
+            type="checkbox"
+            value={"newUser"}
+            //onChange={() => setNewUser(!newUser)}
+          />
+          New User
+        </p>
+        
+        
+        {/* Uncomment this to have the option to log in as a professor
+        <p className={styles.login_boxes}>
+          <input
+            type="checkbox"
+            value={prof}
+            onChange={() => setProf(!prof)}
+            className={styles.cbox}
+          />{" "}
+          Professor
+        </p> */}
+      </main>
+    </div>
+  );
+}
