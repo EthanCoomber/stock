@@ -1,94 +1,57 @@
-import React, { useState, useEffect } from 'react';
-//import { useRouter } from "next/router";
-//useEffect
-import '../node_modules/react-vis/dist/style.css';
+// import { useState } from "react";
+// import { useRouter } from "next/router";
 
-//import logo from './logo.svg';
-import './App.css';
-import UserComponent from './components/UserComponent';
-import UserService from './services/UserService';
-import StockService from './services/StockService';
-import GraphComponent from './components/GraphComponent';
-
-function App() {
-  const [currTicker, setTicker] = useState("");
-  const [currGraphTick, setGraphTick] = useState("");
-  const [pr, setPr] = useState([]);
-  //const [username, setUsername] = useState("");
-  // const router = useRouter();
-  // let username = "";
-
-  const handleChange = (ticker) => {
-    setTicker(ticker);
-  };
-
-  const handleGraphChange = (event) => {
-    setGraphTick(event.target.value);
-  }
-
-  function handleSubmitAdd(){
-    console.log(currTicker.target.value);
-    UserService.addTicker(currTicker.target.value, 1);
-    setTicker("");
-  }
-    
-
-  let prices = [];
-  let counter = 1;
-  async function api_request(ticker, sdate, edate) {
-
-    let fetched = await StockService.getData(ticker, sdate, edate);
-
-    fetched.forEach(element => {
-      prices.push({x: counter, y: element.open})
-      counter++;
-    });
-    
-    //console.log(prices);
-    setPr([...prices])
-
-    return prices
-  }
-
-  // useEffect(() => {
-  //   if(username === ""){
-  //     router.push("/login")
-  //   }
-  // }, [router, username]);
-
+export default function Login() {
   
 
   return (
-    <div className="App">
-        <UserComponent />
-        
-        <span>
-          <div className="form__group field">
-            <input type="input" className="form__field" onChange={handleChange} placeholder="Add" name="add" id='add' required />
-            <label htmlFor="add" className="form__label">Add Ticker</label>
-          </div>
-        </span>
-        <button onClick={() => {handleSubmitAdd()}}>Submit</button>
+    <div>
+      <main>
+        <h1>Login Page</h1>
+        <p>Accepted email tags are @email.com, @gmail.com, @yahoo.com</p>
+        <p>Password must be 6 characters long</p>
+        <div>
+          <p>Email</p>
+          <input
+            type="text"
+            size="45"
+            value={"email"}
+            placeholder="email address"
+          />
+        </div>
 
-        <span>
-          <div className="form__group field">
-            <input type="input" className="form__field_delete" onChange={handleChange} placeholder="Delete" name="delete" id='delete' required />
-            <label htmlFor="add" className="form__label_delete">Remove Ticker</label>
-          </div>
-        </span>
-        <button className='button_delete' onClick={() => {UserService.deleteTicker(currTicker.target.value, 1)}}>Delete</button>
+        <div>
+          <p>Password</p>
+          <input
+            type="password"
+            size="45"
+            value={"password"}
+            placeholder="password"
+            //onChange={(event) => setPassword(event.target.value)}
+            // onKeyUp={handleKeyDown}
+          />
+        </div>
 
-        <span>
-          <div className="form__group field">
-            <input type="input" className="form__field_graph" onChange={handleGraphChange} placeholder="Graph" name="graph" id='graph' required />
-            <label htmlFor="add" className="form__label_graph">Generate Graph</label>
-          </div>
-        </span>
-        <button className='button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
+        <p>
+          <input
+            type="checkbox"
+            value={"newUser"}
+            //onChange={() => setNewUser(!newUser)}
+          />
+          New User
+        </p>
         
-        <GraphComponent data={pr}/>
+        {/* Uncomment this to have the option to log in as a professor
+        <p className={styles.login_boxes}>
+          <input
+            type="checkbox"
+            value={prof}
+            onChange={() => setProf(!prof)}
+            className={styles.cbox}
+          />{" "}
+          Professor
+        </p> */}
+      </main>
     </div>
   );
 }
-
-export default App;
