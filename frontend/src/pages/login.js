@@ -1,20 +1,13 @@
-import Head from "next/head";
-import { useState } from "react";
-import { useRouter } from "next/router";
-
-import styles from "../styles/index.module.css";
-import { AwesomeButton } from "react-awesome-button";
+// import { useState } from "react";
+// import { useRouter } from "next/router";
 
 export default function Login() {
   
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Quiz Taker: Login</title>
-      </Head>
+    <div>
 
-      <main className={styles.login}>
+      <main>
         <h1>Login Page</h1>
         <p>Accepted email tags are @email.com, @gmail.com, @yahoo.com</p>
         <p>Password must be 6 characters long</p>
@@ -25,8 +18,6 @@ export default function Login() {
             size="45"
             value={"email"}
             placeholder="email address"
-          
-            className={styles.input}
           />
         </div>
 
@@ -37,18 +28,16 @@ export default function Login() {
             size="45"
             value={"password"}
             placeholder="password"
-            //onChange={(event) => setPassword(event.target.value)}
-            className={styles.input}
+            //onChange={(event) => setPassword(event.target.value)
             // onKeyUp={handleKeyDown}
           />
         </div>
 
-        <p className={styles.login_boxes}>
+        <p>
           <input
             type="checkbox"
             value={"newUser"}
             //onChange={() => setNewUser(!newUser)}
-            className={styles.cbox}
           />{" "}
           New User
         </p>
