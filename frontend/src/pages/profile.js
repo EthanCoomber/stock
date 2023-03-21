@@ -49,13 +49,6 @@ export default function Profile() {
 
     return prices
   }
-
-  // useEffect(() => {
-  //   if(username === ""){
-  //     router.push("/login")
-  //   }
-  // }, [router, username]);
-
   
 
   return (
