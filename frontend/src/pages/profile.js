@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 //import { useRouter } from "next/router";
 //useEffect
 import '../../node_modules/react-vis/dist/style.css';
@@ -61,7 +61,7 @@ export default function Profile() {
             <label htmlFor="add" className="form__label">Add Ticker</label>
           </div>
         </span>
-        <button onClick={() => {handleSubmitAdd()}}>Submit</button>
+        <button class = 'reg_button' onClick={() => {handleSubmitAdd()}}>Submit</button>
 
         <span>
           <div className="form__group field">
@@ -69,7 +69,7 @@ export default function Profile() {
             <label htmlFor="add" className="form__label_delete">Remove Ticker</label>
           </div>
         </span>
-        <button className='button_delete' onClick={() => {UserService.deleteTicker(currTicker.target.value, 1)}}>Delete</button>
+        <button class ='reg_button button_delete' onClick={() => {UserService.deleteTicker(currTicker.target.value, 1)}}>Delete</button>
 
         <span>
           <div className="form__group field">
@@ -77,7 +77,7 @@ export default function Profile() {
             <label htmlFor="add" className="form__label_graph">Generate Graph</label>
           </div>
         </span>
-        <button className='button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
+        <button class ='reg_button button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
         
         <GraphComponent data={pr}/>
     </div>
