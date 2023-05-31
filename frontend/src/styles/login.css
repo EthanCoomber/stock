@@ -1,26 +1,50 @@
 /* * BEGIN: Non Openmrs CSS * */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 * {
 	font-family: "Roboto";
-}
+} */
 
 h1{
-	padding: 2%;
+	padding: 4%;
+	font-size: 10px;
 	text-align: center;
+	background-image:
+		linear-gradient(
+		to bottom, 
+		white, 
+		white,  
+		#698e68,
+		#598C58,
+		#598C58
+		);
+	height: 10%;
+}
+
+div.bucket {
+	height: 100vh;
 }
 
 div.container {
 	position: absolute;
 	font-size: 24px;
-	top: 10%;
+	top: 8%;
 	left: 10%;
 	/* justify-content: space-around; */
 	margin-top: 30px;
 	border: .5em solid #121212;
-	padding: 18px;
+	/* padding: 18px; */
 	border-radius: 8px;
 	height: 80%;
-	width: 80%
+	width: 80%;
+	background-color: #DDE8B3;
+}
+
+div.filler {
+	position:absolute;
+	top: 10%;
+	height: 90%;
+	width: 100%;
+	background-color: #598C58;
 }
 
 input{
@@ -31,11 +55,13 @@ input{
 	left: 35%;
 	text-align: center;
 	margin: 15px;
+	background-color: #BFCC98;
+	border-radius: 8px;
 }
 
 input:focus {
-	outline-color: #11998e;
-	background-color: #e8fcf9;
+	outline-color: #63734A;
+	background-color: #e4e4e4;
 }
 
 input:focus::placeholder {
