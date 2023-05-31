@@ -32,3 +32,12 @@ input{
 	text-align: center;
 	margin: 15px;
 }
+
+input:focus {
+	outline-color: #11998e;
+	background-color: #e8fcf9;
+}
+
+input:focus::placeholder {
+	color: transparent;
+}
