@@ -1,21 +1,21 @@
 import axios from 'axios'
 
-const USERS_REST_API_URL_POST = '/get';
-const USERS_REST_API_URL_PUT = '/get';
+const USERS_REST_API_URL_GET = '/get';
+const USERS_REST_API_URL_POST = '/post';
 
 class UserService {
 
     addUser(user) {
       console.log(user)
       try {
-        axios.put(USERS_REST_API_URL_PUT, user)
+        axios.post(USERS_REST_API_URL_POST, user)
       } catch (error) {
         console.error(error.response.data); 
       }
     }
 
     getUsers(){
-        return axios.get(USERS_REST_API_URL_POST);
+        return axios.get(USERS_REST_API_URL_GET);
     }
     
     addTicker(ticker, userId) {

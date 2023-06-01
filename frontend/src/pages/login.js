@@ -10,13 +10,19 @@ export default function Login() {
 
   const handleChange = (username) => {
     setUsername(username.target.value);
-    console.log(currUsername)
+    // console.log(currUsername)
   };
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = `/profile`; 
     navigate(path);
+  }
+
+  const handleSubmit = () => {
+    let newUser = {username: currUsername};
+    UserService.addUser(newUser);
+    // console.log(newUser)
   }
   
 
@@ -27,7 +33,7 @@ export default function Login() {
       <div class="container">
         <div>
           <input type="text" id="input" class="Input-text" onChange={handleChange} placeholder="Username" />
-          <button class="button-38" onClick={routeChange}>Login</button>
+          <button class="button-38" onClick={handleSubmit}>Login</button>
         </div>
       </div>
     </div>
