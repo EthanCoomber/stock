@@ -9,6 +9,7 @@ import UserComponent from '../components/UserComponent';
 import UserService from '../services/UserService';
 import StockService from '../services/StockService';
 import GraphComponent from '../components/GraphComponent';
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const [currTicker, setTicker] = useState("");
@@ -17,6 +18,12 @@ export default function Profile() {
   //const [username, setUsername] = useState("");
   // const router = useRouter();
   // let username = "";
+
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/`; 
+    navigate(path);
+  }
 
   const handleChange = (ticker) => {
     setTicker(ticker);
@@ -78,6 +85,8 @@ export default function Profile() {
           </div>
         </span>
         <button class ='reg_button button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
+
+        <button class="button-38" onClick={routeChange}>Logout</button>
         
         <GraphComponent data={pr}/>
     </div>
