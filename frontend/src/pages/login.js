@@ -1,9 +1,17 @@
 // import { useState } from "react";
 // import { useRouter } from "next/router";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
 import '../styles/login.css';
+import UserService from '../services/UserService';
 
 export default function Login() {
+  const [currUsername, setUsername] = useState("");
+
+  const handleChange = (username) => {
+    setUsername(username.target.value);
+    console.log(currUsername)
+  };
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
@@ -18,7 +26,7 @@ export default function Login() {
       <div class = "filler"></div>
       <div class="container">
         <div>
-          <input type="text" id="input" class="Input-text" placeholder="Username" />
+          <input type="text" id="input" class="Input-text" onChange={handleChange} placeholder="Username" />
           <button class="button-38" onClick={routeChange}>Login</button>
         </div>
       </div>
