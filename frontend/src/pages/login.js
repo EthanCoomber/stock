@@ -1,33 +1,40 @@
 // import { useState } from "react";
 // import { useRouter } from "next/router";
-import { useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import { createSearchParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 import '../styles/login.css';
 import UserService from '../services/UserService';
 
+
 export default function Login() {
   const [currUsername, setUsername] = useState("");
+  const [newUser, setNewUser] = useState({});
+
+  useEffect(() => {
+    setNewUser({username: currUsername});
+  }, [currUsername]);
 
   const handleChange = (username) => {
     setUsername(username.target.value);
-    // console.log(currUsername)
   };
 
   let navigate = useNavigate(); 
   const routeChange = () =>{ 
-    let path = `/profile`; 
-    navigate(path);
+    let path = "/profile"; 
+    navigate(path, {
+      state: newUser
+    });
   }
 
   const handleSubmit = () => {
-    let newUser = {username: currUsername};
+    // console.log(newUser)
     try {
       UserService.addUser(newUser);
+      routeChange()
     } catch (error) {
-      console.log("here")
+      console.log("Something went wrong")
       routeChange()
     }
-    
   }
   
 

@@ -104,3 +104,8 @@ input:focus::placeholder {
 .button-38:focus-visible {
   box-shadow: none;
 }
+
+.button-39 {
+	top: 68%;
+	left: 42.5%;
+}

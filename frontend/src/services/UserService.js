@@ -6,7 +6,6 @@ const USERS_REST_API_URL_POST = '/post';
 class UserService {
 
     addUser(user) {
-      console.log(user)
       try {
         axios.post(USERS_REST_API_URL_POST, user)
       } catch (error) {
