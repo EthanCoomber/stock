@@ -21,7 +21,10 @@ public class UsersController {
 
     @PostMapping(path = "/post")
     public void addUser(@RequestBody Users newUser){
-        usersService.addNewUser(newUser);
+        boolean exists = usersService.userExist(newUser);
+        if(!exists) {
+            usersService.addNewUser(newUser);
+        }
     }
 
     @PostMapping(path = "/{userId}/insert")

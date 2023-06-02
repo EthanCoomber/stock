@@ -24,6 +24,15 @@ public class UsersService {
         userRepository.save(newUser);
     }
 
+    public boolean userExist(Users newUser) {
+        Optional<Users> UserOptional = userRepository.findUserByUsername(newUser.getUsername());
+        if(UserOptional.isPresent()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public List<Users> getUsers() {
         return userRepository.findAll();
     }

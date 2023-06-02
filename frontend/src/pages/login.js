@@ -21,8 +21,13 @@ export default function Login() {
 
   const handleSubmit = () => {
     let newUser = {username: currUsername};
-    UserService.addUser(newUser);
-    // console.log(newUser)
+    try {
+      UserService.addUser(newUser);
+    } catch (error) {
+      console.log("here")
+      routeChange()
+    }
+    
   }
   
 
