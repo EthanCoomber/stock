@@ -37,6 +37,10 @@ public class UsersService {
         return userRepository.findAll();
     }
 
+    public Optional<Users> getUser(String username) {
+        return userRepository.findUserByUsername(username);
+    }
+
     @Transactional
     public void updateTicker(Long userId, String ticker, String action) {
         Users currUser = userRepository.findById(userId)

@@ -16,6 +16,11 @@ class UserService {
     getUsers(){
         return axios.get(USERS_REST_API_URL_GET);
     }
+
+    getUserInfo(username){
+      let url = "/get/" + username;
+      return axios.get(url);
+  }
     
     addTicker(ticker, userId) {
       console.log(ticker)

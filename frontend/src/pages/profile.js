@@ -34,13 +34,15 @@ export default function Profile() {
   }
 
   function handleSubmitAdd(){
-    console.log(currTicker.target.value);
+    // console.log(currTicker.target.value);
     UserService.addTicker(currTicker.target.value, 1);
     setTicker("");
   }
 
-  const getUserInfo = () => {
-    console.log(location.state.username)
+  const getUserInfo = async () => {
+    let info = await UserService.getUserInfo(location.state.username)
+    console.log(info.data.tickers)
+    // console.log(location.state.username)
   }
   
     
