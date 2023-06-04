@@ -21,7 +21,7 @@ class UserService {
       console.log(ticker)
         let url = "/" + userId + "/insert?ticker=" + ticker;
         try {
-            axios.put(url, null)
+            axios.post(url, null)
           } catch (error) {
             console.error(error.response.data); 
           }

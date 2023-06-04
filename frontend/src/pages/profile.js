@@ -17,7 +17,6 @@ export default function Profile() {
   const [currTicker, setTicker] = useState("");
   const [currGraphTick, setGraphTick] = useState("");
   const [pr, setPr] = useState([]);
-  const [searchParams] = useSearchParams();
   const location = useLocation();
   let navigate = useNavigate(); 
 

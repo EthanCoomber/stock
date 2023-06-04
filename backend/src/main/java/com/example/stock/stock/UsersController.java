@@ -34,7 +34,7 @@ public class UsersController {
         usersService.updateTicker(userId, ticker, "add");
     }
 
-    @PostMapping(path = "/{userId}/delete")
+    @DeleteMapping(path = "/{userId}/delete")
     public void deleteTicker(
             @PathVariable("userId") Long userId,
             @RequestParam(required = false) String ticker){
