@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 //import { useRouter } from "next/router";
 //useEffect
 import '../../node_modules/react-vis/dist/style.css';
@@ -12,11 +12,13 @@ import GraphComponent from '../components/GraphComponent';
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { wait } from '@testing-library/user-event/dist/utils';
 
 export default function Profile() {
   const [currTicker, setTicker] = useState("");
   const [currGraphTick, setGraphTick] = useState("");
   const [pr, setPr] = useState([]);
+  const [currUser, setUser] = useState({});
   const location = useLocation();
   let navigate = useNavigate(); 
 
@@ -39,11 +41,21 @@ export default function Profile() {
     setTicker("");
   }
 
-  const getUserInfo = async () => {
-    let info = await UserService.getUserInfo(location.state.username)
-    console.log(info.data.tickers)
-    // console.log(location.state.username)
+  const getUserInfo = () => {
+    console.log(currUser.data)
   }
+
+  useEffect(() => {
+    async function fetchData(){
+      let info = await UserService.getUserInfo(location.state.username)
+      //console.log(info.data.tickers)
+      setUser(info)
+      // return info
+    }
+
+    fetchData()
+    
+  }, [location]);
   
     
 
