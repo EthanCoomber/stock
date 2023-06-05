@@ -18,7 +18,9 @@ export default function Profile() {
   const [currTicker, setTicker] = useState("");
   const [currGraphTick, setGraphTick] = useState("");
   const [pr, setPr] = useState([]);
-  const [currUser, setUser] = useState({});
+  const [id, setId] = useState();
+  const [username, setUsername] = useState("");
+  const [tickers, setTickers] = useState([]);
   const location = useLocation();
   let navigate = useNavigate(); 
 
@@ -42,19 +44,23 @@ export default function Profile() {
   }
 
   const getUserInfo = () => {
-    console.log(currUser.data)
+    console.log(username)
+    console.log(tickers)
+    console.log(id)
+  }
+
+  const setInformation = (user) => {
+    setUsername(user.username)
+    setTickers(user.tickers)
+    setId(user.id)
   }
 
   useEffect(() => {
     async function fetchData(){
       let info = await UserService.getUserInfo(location.state.username)
-      //console.log(info.data.tickers)
-      setUser(info)
-      // return info
+      setInformation(info.data)
     }
-
     fetchData()
-    
   }, [location]);
   
     
