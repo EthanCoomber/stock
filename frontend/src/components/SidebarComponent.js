@@ -1,5 +1,7 @@
 import React from 'react'
 import {AiOutlineStock} from 'react-icons/ai'
+import { IconContext } from "react-icons";
+import '../styles/sidebar.css'
 
 //Min 1:34:00
 
@@ -8,12 +10,15 @@ const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 bo
 
 const SideBar = () => {
     return ( 
-        <div className='flex flex-col justify-between bg-blue h-full overflow-y min-w-210'>
-            <div className='flex flex-col'>
-                <div className='flex flex-col gap-5'>
+        <div className='shell'>
+            <div className=''>
+                <div className=''>
                     <div className={( {isActive} ) => isActive ? isActiveStyle : isNotActiveStyle}>
-                        <AiOutlineStock />
                         Hello
+                        <IconContext.Provider value={{color: 'navy', size: 42}}>
+                            <AiOutlineStock />
+                        </IconContext.Provider>
+                        
                     </div>
 
                 </div>
