@@ -5,21 +5,35 @@ import '../styles/sidebar.css'
 
 //Min 1:34:00
 
-const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
-const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
+const isNotActiveStyle = '.not-active'
+const isActiveStyle = '.active'
+
+const tickers = [
+    {name: "TSLA"},
+    {name: "AAPL"},
+    {name: "QQQ"},
+    {name: "VOO"},
+    {name: "SPX"}
+]
 
 const SideBar = () => {
     return ( 
         <div className='shell'>
             <div className=''>
                 <div className=''>
-                    <div className={( {isActive} ) => isActive ? isActiveStyle : isNotActiveStyle}>
-                        Stocks
-                        <IconContext.Provider value={{color: 'green', size: 42}}>
-                            <AiOutlineStock />
-                        </IconContext.Provider>
-                        
-                    </div>
+                    Stocks
+                    <IconContext.Provider value={{color: 'green', size: 42}}>
+                        <AiOutlineStock />
+                    </IconContext.Provider>
+
+                    {tickers.slice(0, tickers.length).map((ticker) => (
+                        <div 
+                            className={( {isActive} ) => isActive ? isActiveStyle : isNotActiveStyle}
+                            key={ticker.name}
+                        >
+                            {ticker.name}
+                        </div>
+                    ))}
 
                 </div>
                 

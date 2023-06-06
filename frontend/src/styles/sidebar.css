@@ -21,3 +21,11 @@ div.shell {
     position: flex;
     flex-direction: column;
 }
+
+.active{
+    font-weight: bold;
+}
+
+.not-active {
+    color: blue;
+}
