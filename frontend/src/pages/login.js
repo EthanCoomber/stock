@@ -1,6 +1,6 @@
 // import { useState } from "react";
 // import { useRouter } from "next/router";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import '../styles/login.css';
 import UserService from '../services/UserService';

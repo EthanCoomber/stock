@@ -10,9 +10,7 @@ import UserService from '../services/UserService';
 import StockService from '../services/StockService';
 import GraphComponent from '../components/GraphComponent';
 import { useNavigate } from "react-router-dom";
-import { useSearchParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { wait } from '@testing-library/user-event/dist/utils';
 
 export default function Profile() {
   const [currTicker, setTicker] = useState("");
@@ -39,7 +37,7 @@ export default function Profile() {
 
   function handleSubmitAdd(){
     // console.log(currTicker.target.value);
-    UserService.addTicker(currTicker.target.value, 1);
+    UserService.addTicker(currTicker.target.value, id);
     setTicker("");
   }
 
