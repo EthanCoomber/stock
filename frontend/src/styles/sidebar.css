@@ -5,8 +5,10 @@
 
 div.shell {
     position: absolute;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
     flex-direction: column;
-    justify-content: space-between;
     background-color: white;
     left: 75%;
     top: 0%;

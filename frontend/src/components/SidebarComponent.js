@@ -14,8 +14,8 @@ const SideBar = () => {
             <div className=''>
                 <div className=''>
                     <div className={( {isActive} ) => isActive ? isActiveStyle : isNotActiveStyle}>
-                        Hello
-                        <IconContext.Provider value={{color: 'navy', size: 42}}>
+                        Stocks
+                        <IconContext.Provider value={{color: 'green', size: 42}}>
                             <AiOutlineStock />
                         </IconContext.Provider>
                         
