@@ -11,6 +11,7 @@ import StockService from '../services/StockService';
 import GraphComponent from '../components/GraphComponent';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
+import SidebarComponent from '../components/SidebarComponent';
 
 export default function Profile() {
   const [currTicker, setTicker] = useState("");
@@ -112,6 +113,7 @@ export default function Profile() {
         <button class="button-38" onClick={routeChange}>Logout</button>
         <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button>
         
+        <SidebarComponent />
         <GraphComponent data={pr}/>
     </div>
   );
