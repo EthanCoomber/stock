@@ -89,7 +89,7 @@ input:focus::placeholder {
   touch-action: manipulation;
   position:absolute;
   top: 58%;
-  left: 46.5%;
+  left: 66.5%;
 }
 
 .button-38:hover {
@@ -107,5 +107,5 @@ input:focus::placeholder {
 
 .button-39 {
 	top: 68%;
-	left: 42.5%;
+	left: 62.5%;
 }

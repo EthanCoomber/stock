@@ -96,7 +96,7 @@ export default function Profile() {
         <span>
           <div className="form__group field">
             <input type="input" className="form__field_delete" onChange={handleChange} placeholder="Delete" name="delete" id='delete' required />
-            <label htmlFor="add" className="form__label_delete">Remove Ticker</label>
+            <label htmlFor="add" className="form__label_delete" for="delete">Remove Ticker</label>
           </div>
         </span>
         <button class ='reg_button button_delete' onClick={() => {UserService.deleteTicker(currTicker.target.value, 1)}}>Delete</button>
@@ -104,7 +104,7 @@ export default function Profile() {
         <span>
           <div className="form__group field">
             <input type="input" className="form__field_graph" onChange={handleGraphChange} placeholder="Graph" name="graph" id='graph' required />
-            <label htmlFor="add" className="form__label_graph">Generate Graph</label>
+            <label htmlFor="add" className="form__label_graph" for="graph">Generate Graph</label>
           </div>
         </span>
         <button class ='reg_button button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
