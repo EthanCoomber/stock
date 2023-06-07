@@ -42,16 +42,15 @@ export default function Profile() {
     setTicker("");
   }
 
-  const getUserInfo = () => {
-    console.log(username)
-    console.log(tickers)
-    console.log(id)
-  }
+  // const getUserInfo = () => {
+  //   console.log(username)
+  //   console.log(tickers)
+  //   console.log(id)
+  // }
 
   const setInformation = (user) => {
     setUsername(user.username)
     setTickers(user.tickers)
-    console.log(tickers)
     setId(user.id)
   }
 
@@ -62,8 +61,6 @@ export default function Profile() {
     }
     fetchData()
   }, [location]);
-  
-    
 
   let prices = [];
   let counter = 1;
@@ -80,7 +77,22 @@ export default function Profile() {
 
     return prices
   }
-  
+
+  useEffect(() => {
+    let prices = [];
+    let counter = 1;
+    async function fetchData(){
+      let fetched = await StockService.getData('GOOG', '2022-01-01','2022-07-01');
+
+      fetched.forEach(element => {
+        prices.push({x: counter, y: element.open})
+        counter++;
+      });
+      
+      setPr([...prices])
+    }
+    fetchData()
+  }, []);  
 
   return (
     <div className="App">

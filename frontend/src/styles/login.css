@@ -111,6 +111,11 @@ input:focus::placeholder {
 } */
 
 .button-2 {
-	top: 2%;
+	background-color: #fe9a9a;
+	top: 4%;
 	left: 83.5%;
 }
+
+.button-2:hover {
+	background-color: #ff8484;
+  }
