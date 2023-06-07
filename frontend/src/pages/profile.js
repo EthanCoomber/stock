@@ -5,7 +5,7 @@ import '../../node_modules/react-vis/dist/style.css';
 
 //import logo from './logo.svg';
 import '../styles/profile.css';
-import UserComponent from '../components/UserComponent';
+// import UserComponent from '../components/UserComponent';
 import UserService from '../services/UserService';
 import StockService from '../services/StockService';
 import GraphComponent from '../components/GraphComponent';
