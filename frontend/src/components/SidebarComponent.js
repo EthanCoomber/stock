@@ -15,11 +15,9 @@ import '../styles/sidebar.css'
 const SideBar = (temp) => {
     const tickersObject = Object.values(temp);
     const tickers = tickersObject[0]
-    console.log(tickers[0])
 
     function renderTickers(){
         const output = tickers.map(function(ticker){
-            console.log(ticker[0])
             return (
             <span key={ticker}>
                 <div 
@@ -44,8 +42,6 @@ const SideBar = (temp) => {
                  <AiOutlineStock />
             </IconContext.Provider>
             <hr class="line" size="100" width="90%"/>
-
-            {console.log(tickers)}
 
             {renderTickers()}
         </div>

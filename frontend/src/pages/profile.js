@@ -76,7 +76,6 @@ export default function Profile() {
       counter++;
     });
     
-    //console.log(prices);
     setPr([...prices])
 
     return prices
@@ -86,11 +85,9 @@ export default function Profile() {
   return (
     <div className="App">
         {/* <UserComponent /> */}
-
         <div className="helloUser">
           Hello {username}
         </div>
-
         <h2 className="profHeader">
           Stock Tracker
         </h2>
@@ -121,8 +118,8 @@ export default function Profile() {
         </span>
         <button class ='reg_button button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
       
-        <button class="button-38" onClick={routeChange}>Logout</button>
-        <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button>
+        <button class="button-38 button-2" onClick={routeChange}>Logout</button>
+        {/* <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button> */}
         
         <SidebarComponent tickers={tickers}/>
         <GraphComponent data={pr}/>
