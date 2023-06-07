@@ -93,7 +93,9 @@ export default function Profile() {
         <h2 className="profHeader">
           Stock Tracker
         </h2>
-        
+
+        <hr className="mainHr" size="100" width="90%"></hr>
+      
         <span>
           <div className="form__group field">
             <input type="input" className="form__field" onChange={handleChange} placeholder="Add" name="add" id='add' required />
@@ -117,7 +119,7 @@ export default function Profile() {
           </div>
         </span>
         <button class ='reg_button button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
-
+      
         <button class="button-38" onClick={routeChange}>Logout</button>
         <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button>
         

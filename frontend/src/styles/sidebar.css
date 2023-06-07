@@ -9,12 +9,19 @@ div.shell {
     align-items: center;
     /* justify-content: center; */
     flex-direction: column;
-    background-color: white;
-    left: 75%;
-    top: 0%;
-    height: 100vh;
-    min-width: 25%;
+    background-color: rgba(106, 106, 106, 0.638);
+    left: 70%;
+    top: 17%;
+    height: 83vh;
+    min-width: 30%;
     text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+
+span.watchlist {
+    font-size: 1.8em;
 }
 
 .shell-inner {
@@ -37,4 +44,13 @@ div.shell {
 .ticker:hover, .ticker:focus .ticker:active{
     background: #13a818;    
     width: 100%;
+}
+
+.line {
+    z-index:-1;
+    opacity: 1;
+    height: 1.3em;
+    height: 16px;
+    color: black;
+    border-top: 3px double #8c8b8b;
 }
