@@ -51,6 +51,7 @@ export default function Profile() {
   const setInformation = (user) => {
     setUsername(user.username)
     setTickers(user.tickers)
+    console.log(tickers)
     setId(user.id)
   }
 
@@ -123,7 +124,7 @@ export default function Profile() {
         <button class="button-38" onClick={routeChange}>Logout</button>
         <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button>
         
-        <SidebarComponent />
+        <SidebarComponent tickers={tickers}/>
         <GraphComponent data={pr}/>
     </div>
   );

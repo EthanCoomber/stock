@@ -1,0 +1,21 @@
+/* .not-used {
+    position: flex;
+    items: center; px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize
+} */
+
+div.shell {
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    left: 75%;
+    top: 0%;
+    height: 100vh;
+    min-width: 25%;
+    text-align: center;
+}
+
+.shell-inner {
+    position: flex;
+    flex-direction: column;
+}

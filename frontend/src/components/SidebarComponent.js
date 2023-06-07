@@ -2,24 +2,39 @@ import React from 'react'
 import {AiOutlineStock} from 'react-icons/ai'
 import { IconContext } from "react-icons";
 import '../styles/sidebar.css'
-import { NavLink } from 'react-router-dom';
 
-//Min 1:34:00
 
-const isNotActiveStyle = '.isNot-active'
-const isActiveStyle = '.isActive'
+// const tickers = [
+//     {name: "TSLA"},
+//     {name: "AAPL"},
+//     {name: "QQQ"},
+//     {name: "VOO"},
+//     {name: "SPX"}
+// ]
 
-// {( {isActive} ) => isActive ? isActiveStyle : isNotActiveStyle}
+const SideBar = (temp) => {
+    const tickersObject = Object.values(temp);
+    const tickers = tickersObject[0]
+    console.log(tickers[0])
 
-const tickers = [
-    {name: "TSLA"},
-    {name: "AAPL"},
-    {name: "QQQ"},
-    {name: "VOO"},
-    {name: "SPX"}
-]
+    function renderTickers(){
+        const output = tickers.map(function(ticker){
+            console.log(ticker[0])
+            return (
+            <span key={ticker}>
+                <div 
+                    className='ticker'
+                    key={ticker}
+                    tabIndex={ticker}
+                >
+                    {ticker}
+                </div>
+            </span> 
+            )
+        })
+        return output
+    }
 
-const SideBar = () => {
     return ( 
         <div className="shell">
             <span className="watchlist">
@@ -30,15 +45,9 @@ const SideBar = () => {
             </IconContext.Provider>
             <hr class="line" size="100" width="90%"/>
 
-            {tickers.slice(0, tickers.length).map((ticker) => (
-                <div 
-                    className='ticker'
-                    key={ticker.name}
-                    tabIndex={ticker.name}
-                >
-                    {ticker.name}
-                </div>
-            ))}
+            {console.log(tickers)}
+
+            {renderTickers()}
         </div>
     );
 }
