@@ -86,7 +86,7 @@ export default function Profile() {
     <div className="App">
         {/* <UserComponent /> */}
 
-        <div>
+        <div className="helloUser">
           Hello {username}
         </div>
 
