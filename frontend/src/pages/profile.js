@@ -84,7 +84,15 @@ export default function Profile() {
 
   return (
     <div className="App">
-        <UserComponent />
+        {/* <UserComponent /> */}
+
+        <div>
+          Hello {username}
+        </div>
+
+        <h2 className="profHeader">
+          Stock Tracker
+        </h2>
         
         <span>
           <div className="form__group field">

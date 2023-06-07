@@ -22,10 +22,19 @@ div.shell {
     flex-direction: column;
 }
 
-.active{
+/* .active{
     font-weight: bold;
 }
 
 .not-active {
     color: blue;
+} */
+
+.ticker {
+    width: 100%;
+}
+
+.ticker:hover, .ticker:focus .ticker:active{
+    background: #13a818;    
+    width: 100%;
 }
