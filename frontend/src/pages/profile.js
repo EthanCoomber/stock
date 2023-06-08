@@ -50,10 +50,6 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    console.log(clicked)
-  }, [clicked]);
-
-  useEffect(() => {
     async function fetchData(){
       let info = await UserService.getUserInfo(location.state.username)
       setInformation(info.data)
@@ -76,6 +72,23 @@ export default function Profile() {
 
     return prices
   }
+
+  useEffect(() => {
+    console.log(clicked)
+    let prices = [];
+    let counter = 1;
+    async function fetchData(){
+      let fetched = await StockService.getData(clicked, '2022-01-01','2022-07-01');
+
+      fetched.forEach(element => {
+        prices.push({x: counter, y: element.open})
+        counter++;
+      });
+      
+      setPr([...prices])
+    }
+    fetchData()
+  }, [clicked]);
 
   useEffect(() => {
     let prices = [];

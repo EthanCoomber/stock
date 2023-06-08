@@ -4,7 +4,7 @@ import { IconContext } from "react-icons";
 import '../styles/sidebar.css'
 
 export default function SideBar(temp){
-    console.log(temp)
+    // console.log(temp)
     const tickersObject = Object.values(temp || {});
     const tickers = tickersObject[0]
 
