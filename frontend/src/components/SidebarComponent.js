@@ -3,18 +3,12 @@ import {AiOutlineStock} from 'react-icons/ai'
 import { IconContext } from "react-icons";
 import '../styles/sidebar.css'
 
-
-// const tickers = [
-//     {name: "TSLA"},
-//     {name: "AAPL"},
-//     {name: "QQQ"},
-//     {name: "VOO"},
-//     {name: "SPX"}
-// ]
-
-const SideBar = (temp) => {
-    const tickersObject = Object.values(temp);
+export default function SideBar(temp){
+    console.log(temp)
+    const tickersObject = Object.values(temp || {});
     const tickers = tickersObject[0]
+
+    // function setClicked = temp.setClicked
 
     function renderTickers(){
         const output = tickers.map(function(ticker){
@@ -24,6 +18,7 @@ const SideBar = (temp) => {
                     className='ticker'
                     key={ticker}
                     tabIndex={ticker}
+                    onClick={() => temp.setClicked(ticker)}
                 >
                     {ticker}
                 </div>
@@ -47,5 +42,3 @@ const SideBar = (temp) => {
         </div>
     );
 }
-
-export default SideBar;

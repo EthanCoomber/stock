@@ -20,6 +20,7 @@ export default function Profile() {
   const [id, setId] = useState();
   const [username, setUsername] = useState("");
   const [tickers, setTickers] = useState([]);
+  const [clicked, setClicked] = useState("")
   const location = useLocation();
   let navigate = useNavigate(); 
 
@@ -42,17 +43,15 @@ export default function Profile() {
     setTicker("");
   }
 
-  // const getUserInfo = () => {
-  //   console.log(username)
-  //   console.log(tickers)
-  //   console.log(id)
-  // }
-
   const setInformation = (user) => {
     setUsername(user.username)
     setTickers(user.tickers)
     setId(user.id)
   }
+
+  useEffect(() => {
+    console.log(clicked)
+  }, [clicked]);
 
   useEffect(() => {
     async function fetchData(){
@@ -133,7 +132,7 @@ export default function Profile() {
         <button class="button-38 button-2" onClick={routeChange}>Logout</button>
         {/* <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button> */}
         
-        <SidebarComponent tickers={tickers}/>
+        <SidebarComponent tickers={tickers} setClicked={setClicked}/>
         <GraphComponent data={pr}/>
     </div>
   );
