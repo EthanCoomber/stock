@@ -26,7 +26,7 @@ class StockService {
             console.error(error);
         });
 
-        console.log(output);
+        // console.log(output);
         return output;
     }
 }

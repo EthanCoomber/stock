@@ -20,6 +20,7 @@ export default function Profile() {
   const [id, setId] = useState();
   const [username, setUsername] = useState("");
   const [tickers, setTickers] = useState([]);
+  const [clickedTick, setClicked] = useState("")
   const location = useLocation();
   let navigate = useNavigate(); 
 
@@ -42,11 +43,11 @@ export default function Profile() {
     setTicker("");
   }
 
-  // const getUserInfo = () => {
-  //   console.log(username)
-  //   console.log(tickers)
-  //   console.log(id)
-  // }
+  function handleSubmitDelete(){
+    // console.log(currTicker.target.value);
+    UserService.deleteTicker(currTicker.target.value, id)
+    setTicker("");
+  }
 
   const setInformation = (user) => {
     setUsername(user.username)
@@ -54,7 +55,12 @@ export default function Profile() {
     setId(user.id)
   }
 
+ useEffect(() => {
+  console.log(clickedTick)
+ }, [clickedTick]);
+
   useEffect(() => {
+    // console.log("here")
     async function fetchData(){
       let info = await UserService.getUserInfo(location.state.username)
       setInformation(info.data)
@@ -64,7 +70,7 @@ export default function Profile() {
 
   let prices = [];
   let counter = 1;
-  async function api_request(ticker, sdate, edate) {
+  async function api_request (ticker, sdate, edate){
 
     let fetched = await StockService.getData(ticker, sdate, edate);
 
@@ -120,7 +126,7 @@ export default function Profile() {
             <label htmlFor="add" className="form__label_delete" for="delete">Remove Ticker</label>
           </div>
         </span>
-        <button class ='reg_button button_delete' onClick={() => {UserService.deleteTicker(currTicker.target.value, 1)}}>Delete</button>
+        <button class ='reg_button button_delete' onClick={() => {handleSubmitDelete()}}>Delete</button>
 
         <span>
           <div className="form__group field">
@@ -133,7 +139,7 @@ export default function Profile() {
         <button class="button-38 button-2" onClick={routeChange}>Logout</button>
         {/* <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button> */}
         
-        <SidebarComponent tickers={tickers}/>
+        <SidebarComponent tickers={tickers} />
         <GraphComponent data={pr}/>
     </div>
   );
