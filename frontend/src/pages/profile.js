@@ -12,7 +12,6 @@ import GraphComponent from '../components/GraphComponent';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import SidebarComponent from '../components/SidebarComponent';
-import { click } from '@testing-library/user-event/dist/click';
 
 export default function Profile() {
   const [currTicker, setTicker] = useState("");
@@ -21,7 +20,8 @@ export default function Profile() {
   const [id, setId] = useState();
   const [username, setUsername] = useState("");
   const [tickers, setTickers] = useState([]);
-  const [clicked, setClicked] = useState("")
+  const [clicked, setClicked] = useState("");
+  const [activeTicker, setActiveTicker] = useState("");
   const location = useLocation();
   let navigate = useNavigate(); 
 
@@ -64,6 +64,8 @@ export default function Profile() {
 
     let fetched = await StockService.getData(ticker, sdate, edate);
 
+    setActiveTicker(ticker)
+
     fetched.forEach(element => {
       prices.push({x: counter, y: element.open})
       counter++;
@@ -80,6 +82,8 @@ export default function Profile() {
     let counter = 1;
     async function fetchData(){
       let fetched = await StockService.getData(clicked, '2022-01-01','2022-07-01');
+
+      setActiveTicker(clicked)
 
       fetched.forEach(element => {
         prices.push({x: counter, y: element.open})
@@ -108,6 +112,14 @@ export default function Profile() {
   //   }
   //   fetchData()
   // }, []);  
+
+  function handleMessage(){
+    if(activeTicker.length < 2){
+      return "Please enter a ticker or select one from the watchlist"
+    } else {
+      return "Current ticker: " + activeTicker
+    }
+  }
 
   return (
     <div className="App">
@@ -147,6 +159,10 @@ export default function Profile() {
       
         <button class="button-38 button-2" onClick={routeChange}>Logout</button>
         {/* <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button> */}
+
+        <div>
+          {handleMessage()}
+        </div>
         
         <SidebarComponent tickers={tickers} setClicked={setClicked}/>
         {pr && <GraphComponent data={pr}/>}
