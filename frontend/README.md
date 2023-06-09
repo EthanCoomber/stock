@@ -2,6 +2,7 @@
 Automatically update tickers
 Delete account button
 Finish graph decorations
+change graph width based on window
 
 
 # Getting Started with Create React App
