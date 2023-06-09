@@ -9,7 +9,6 @@ export default function GraphComponent({
   data
 }){
   if (data.length !== 0){
-    console.log(data)
     const start = data[0].y
 
     const minVal = data.reduce((previous, current) => {
@@ -53,8 +52,8 @@ export default function GraphComponent({
       <GradientDefs> 
         <linearGradient id="myGradient" gradientTransform="rotate(90)" > 
           <stop offset={zero} stopColor="#38ef7d" /> 
-          <stop offset={firstQ} stopColor="green" /> 
-          <stop offset={firstQ} stopColor="green" /> 
+          <stop offset={firstQ} stopColor="#38ef7d" /> 
+          <stop offset={firstQ} stopColor="#38ef7d" /> 
           <stop offset={mid} stopColor="black" /> 
           <stop offset={mid} stopColor="black" /> 
           <stop offset={thirdQ} stopColor="red" /> 
