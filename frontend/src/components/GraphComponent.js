@@ -1,6 +1,7 @@
 import React from 'react';
 import {XYPlot, XAxis, YAxis, GradientDefs, LineSeries} from 'react-vis';
 import '../../node_modules/react-vis/dist/style.css';
+import '../styles/graph.css'
 
 
 
@@ -32,47 +33,50 @@ export default function GraphComponent({
     const zero = "0%"
 
     return (
-    <XYPlot width={630} height={380}>
+    <div className={'graph'}>
+      <XYPlot width={630} height={380} >
     {/* <HorizontalGridLines style={{stroke: '#B7E9ED'}} />
     <VerticalGridLines style={{stroke: '#B7E9ED'}} /> */}
-    <XAxis
-      title="X Axis"
-      style={{
-        line: {stroke: "black"},
-        ticks: {stroke: '#ADDDE1'},
-        text: {stroke: 'none', fontWeight: 600}
-      }}
-    />
-    <YAxis 
-      title="Y Axis" 
-      color="black"
-    />
-    
-    <GradientDefs> 
-      <linearGradient id="myGradient" gradientTransform="rotate(90)" > 
-        <stop offset={zero} stopColor="#38ef7d" /> 
-        <stop offset={firstQ} stopColor="green" /> 
-        <stop offset={firstQ} stopColor="green" /> 
-        <stop offset={mid} stopColor="black" /> 
-        <stop offset={mid} stopColor="black" /> 
-        <stop offset={thirdQ} stopColor="red" /> 
-        <stop offset={thirdQ} stopColor="red" /> 
-        <stop offset="100%" stopColor="#c21e1e" /> 
-        {/* <stop offset="76%" stopColor="#CA0016" /> 
-        <stop offset="100%" stopColor="#CA0016" />  */}
-      </linearGradient> 
-    </GradientDefs>
-    <LineSeries
-      color="url(#myGradient)"
-      className="first-series"
-      data={data}
-      style={{
-        strokeLinejoin: 'round',
-        strokeWidth: 4,
-      }}
+      <XAxis
+        title="X Axis"
+        style={{
+          line: {stroke: "black"},
+          ticks: {stroke: '#ADDDE1'},
+          text: {stroke: 'none', fontWeight: 600}
+        }}
+      />
+      <YAxis 
+        title="Y Axis" 
+        color="black"
+      />
       
-    />
+      <GradientDefs> 
+        <linearGradient id="myGradient" gradientTransform="rotate(90)" > 
+          <stop offset={zero} stopColor="#38ef7d" /> 
+          <stop offset={firstQ} stopColor="green" /> 
+          <stop offset={firstQ} stopColor="green" /> 
+          <stop offset={mid} stopColor="black" /> 
+          <stop offset={mid} stopColor="black" /> 
+          <stop offset={thirdQ} stopColor="red" /> 
+          <stop offset={thirdQ} stopColor="red" /> 
+          <stop offset="100%" stopColor="#c21e1e" /> 
+          {/* <stop offset="76%" stopColor="#CA0016" /> 
+          <stop offset="100%" stopColor="#CA0016" />  */}
+        </linearGradient> 
+      </GradientDefs>
+      <LineSeries
+        color="url(#myGradient)"
+        className="first-series"
+        data={data}
+        style={{
+          strokeLinejoin: 'round',
+          strokeWidth: 4,
+        }}
+        
+      />
     </XYPlot>
+    </div>
+    
     )
   }
   
