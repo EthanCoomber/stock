@@ -117,13 +117,12 @@ export default function Profile() {
     if(activeTicker.length < 2){
       return "Please enter a ticker or select one from the watchlist"
     } else {
-      return "Current ticker: " + activeTicker
+      return activeTicker
     }
   }
 
   return (
     <div className="App">
-        {/* <UserComponent /> */}
         <div className="helloUser">
           Hello {username}
         </div>
@@ -160,7 +159,7 @@ export default function Profile() {
         <button class="button-38 button-2" onClick={routeChange}>Logout</button>
         {/* <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button> */}
 
-        <div>
+        <div className="message">
           {handleMessage()}
         </div>
         

@@ -296,3 +296,11 @@ h2.profHeader {
   left: 1%;
   font-weight: 700;
 }
+
+.message {
+  position: absolute;
+  top: 50%;
+  left: 34%;
+  font-weight: 900;
+  color: rgb(35, 35, 35);
+}
