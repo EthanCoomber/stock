@@ -1,8 +1,8 @@
 #  TODO
-Automatically update tickers
 Delete account button
 Finish graph decorations
 change graph width based on window
+Clear text after button press
 
 
 # Getting Started with Create React App
