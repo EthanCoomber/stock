@@ -22,20 +22,20 @@ class UserService {
       return axios.get(url);
   }
     
-    addTicker(ticker, userId) {
+    async addTicker(ticker, userId) {
       console.log(ticker)
         let url = "/" + userId + "/insert?ticker=" + ticker;
         try {
-            axios.post(url, null)
+            await axios.post(url, null)
           } catch (error) {
             console.error(error.response.data); 
           }
     }
 
-    deleteTicker(ticker, userId) {
+    async deleteTicker(ticker, userId) {
         let url = "/" + userId + "/delete?ticker=" + ticker;
         try {
-            axios.delete(url, null)
+            await axios.delete(url, null)
           } catch (error) {
             console.error(error.response.data); 
           }
