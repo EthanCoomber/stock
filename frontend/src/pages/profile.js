@@ -12,6 +12,7 @@ import GraphComponent from '../components/GraphComponent';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import SidebarComponent from '../components/SidebarComponent';
+import { click } from '@testing-library/user-event/dist/click';
 
 export default function Profile() {
   const [currTicker, setTicker] = useState("");
@@ -74,7 +75,7 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    console.log(clicked)
+    // console.log(clicked)
     let prices = [];
     let counter = 1;
     async function fetchData(){
@@ -87,24 +88,26 @@ export default function Profile() {
       
       setPr([...prices])
     }
-    fetchData()
+    if(clicked.length > 2){
+      fetchData()
+    }
   }, [clicked]);
 
-  useEffect(() => {
-    let prices = [];
-    let counter = 1;
-    async function fetchData(){
-      let fetched = await StockService.getData('GOOG', '2022-01-01','2022-07-01');
+  // useEffect(() => {
+  //   let prices = [];
+  //   let counter = 1;
+  //   async function fetchData(){
+  //     let fetched = await StockService.getData('GOOG', '2022-01-01','2022-07-01');
 
-      fetched.forEach(element => {
-        prices.push({x: counter, y: element.open})
-        counter++;
-      });
+  //     fetched.forEach(element => {
+  //       prices.push({x: counter, y: element.open})
+  //       counter++;
+  //     });
       
-      setPr([...prices])
-    }
-    fetchData()
-  }, []);  
+  //     setPr([...prices])
+  //   }
+  //   fetchData()
+  // }, []);  
 
   return (
     <div className="App">
@@ -146,7 +149,8 @@ export default function Profile() {
         {/* <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button> */}
         
         <SidebarComponent tickers={tickers} setClicked={setClicked}/>
-        <GraphComponent data={pr}/>
+        {pr && <GraphComponent data={pr}/>}
+        {/* <GraphComponent data={pr}/> */}
     </div>
   );
 }
