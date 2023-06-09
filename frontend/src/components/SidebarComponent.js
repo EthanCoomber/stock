@@ -13,9 +13,9 @@ export default function SideBar(temp){
     function renderTickers(){
         const output = tickers.map(function(ticker){
             return (
-            <span key={ticker}>
+            <span key={ticker} className='ticker'>
                 <div 
-                    className='ticker'
+                    
                     key={ticker}
                     tabIndex={ticker}
                     onClick={() => temp.setClicked(ticker)}

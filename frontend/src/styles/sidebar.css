@@ -29,14 +29,6 @@ span.watchlist {
     flex-direction: column;
 }
 
-/* .active{
-    font-weight: bold;
-}
-
-.not-active {
-    color: blue;
-} */
-
 .ticker {
     width: 100%;
 }
@@ -44,6 +36,7 @@ span.watchlist {
 .ticker:hover, .ticker:focus .ticker:active{
     background: #13a818;    
     width: 100%;
+    cursor: pointer;
 }
 
 .line {
