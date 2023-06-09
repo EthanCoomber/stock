@@ -13,6 +13,9 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import SidebarComponent from '../components/SidebarComponent';
 
+const isNotActiveCSS = "messageTick"
+const isActiveCSS = "message"
+
 export default function Profile() {
   const [currTicker, setTicker] = useState("");
   const [currGraphTick, setGraphTick] = useState("");
@@ -22,6 +25,7 @@ export default function Profile() {
   const [tickers, setTickers] = useState([]);
   const [clicked, setClicked] = useState("");
   const [activeTicker, setActiveTicker] = useState("");
+  const [active, setActive] = useState(false)
   const location = useLocation();
   let navigate = useNavigate(); 
 
@@ -65,6 +69,7 @@ export default function Profile() {
     let fetched = await StockService.getData(ticker, sdate, edate);
 
     setActiveTicker(ticker)
+    setActive(true)
 
     fetched.forEach(element => {
       prices.push({x: counter, y: element.open})
@@ -77,13 +82,13 @@ export default function Profile() {
   }
 
   useEffect(() => {
-    // console.log(clicked)
     let prices = [];
     let counter = 1;
     async function fetchData(){
       let fetched = await StockService.getData(clicked, '2022-01-01','2022-07-01');
 
       setActiveTicker(clicked)
+      setActive(true)
 
       fetched.forEach(element => {
         prices.push({x: counter, y: element.open})
@@ -96,22 +101,6 @@ export default function Profile() {
       fetchData()
     }
   }, [clicked]);
-
-  // useEffect(() => {
-  //   let prices = [];
-  //   let counter = 1;
-  //   async function fetchData(){
-  //     let fetched = await StockService.getData('GOOG', '2022-01-01','2022-07-01');
-
-  //     fetched.forEach(element => {
-  //       prices.push({x: counter, y: element.open})
-  //       counter++;
-  //     });
-      
-  //     setPr([...prices])
-  //   }
-  //   fetchData()
-  // }, []);  
 
   function handleMessage(){
     if(activeTicker.length < 2){
@@ -157,15 +146,13 @@ export default function Profile() {
         <button class ='reg_button button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
       
         <button class="button-38 button-2" onClick={routeChange}>Logout</button>
-        {/* <button class="button-38 button-39" onClick={getUserInfo}>Get User Info</button> */}
-
-        <div className="message">
+       
+        <div className={active ? isActiveCSS : isNotActiveCSS}>
           {handleMessage()}
         </div>
         
         <SidebarComponent tickers={tickers} setClicked={setClicked}/>
         {pr && <GraphComponent data={pr}/>}
-        {/* <GraphComponent data={pr}/> */}
     </div>
   );
 }
