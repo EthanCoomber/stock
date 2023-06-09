@@ -42,13 +42,15 @@ export default function Profile() {
     setGraphTick(event.target.value);
   }
 
-  function handleSubmitAdd(){
-    // console.log(currTicker.target.value);
+  async function handleSubmitAdd(){
     UserService.addTicker(currTicker.target.value, id);
+    let info = await UserService.getUserInfo(location.state.username)
+    setInformation(info.data)
     setTicker("");
   }
 
   const setInformation = (user) => {
+    console.log("here")
     setUsername(user.username)
     setTickers(user.tickers)
     setId(user.id)
@@ -135,7 +137,7 @@ export default function Profile() {
             <label htmlFor="add" className="form__label_delete" for="delete">Remove Ticker</label>
           </div>
         </span>
-        <button class ='reg_button button_delete' onClick={() => {UserService.deleteTicker(currTicker.target.value, 1)}}>Delete</button>
+        <button class ='reg_button button_delete' onClick={() => {UserService.deleteTicker(currTicker.target.value, id)}}>Delete</button>
 
         <span>
           <div className="form__group field">

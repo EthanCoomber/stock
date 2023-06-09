@@ -10,6 +10,8 @@ export default function SideBar(temp){
 
     // function setClicked = temp.setClicked
 
+    // console.log(tickers)
+
     function renderTickers(){
         const output = tickers.map(function(ticker){
             return (
