@@ -66,9 +66,19 @@ export default function Profile() {
 
   const setInformation = (user) => {
     // console.log("here")
-    setUsername(user.username)
-    setTickers(user.tickers)
-    setId(user.id)
+    if(user){
+      if(user.username){
+        setUsername(user.username)
+      }
+  
+      if(user.tickers){
+        setTickers(user.tickers)
+      }
+      
+      if(user.id){
+        setId(user.id)
+      }
+    }
   }
 
   useEffect(() => {
@@ -164,7 +174,7 @@ export default function Profile() {
       
         <button class="button-38 button-2" onClick={routeChange}>Logout</button>
 
-        <button class="button-38 button-3" onClick={deleteUser}>Logout</button>
+        <button class="button-38 button-3" onClick={deleteUser}>Delete Account</button>
        
         <div className={active ? isActiveCSS : isNotActiveCSS}>
           {handleMessage()}
