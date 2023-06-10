@@ -9,10 +9,13 @@ import java.util.Optional;
 @RestController
 public class UsersController {
     private final UsersService usersService;
+    private final UsersRepository usersRepository;
 
     @Autowired
-    public UsersController(UsersService userService) {
+    public UsersController(UsersService userService,
+                           UsersRepository usersRepository) {
         this.usersService = userService;
+        this.usersRepository = usersRepository;
     }
 
     @GetMapping(path = "/get")
@@ -26,6 +29,13 @@ public class UsersController {
         if(!exists) {
             usersService.addNewUser(newUser);
         }
+    }
+
+    @DeleteMapping(path = "/delete/{username}")
+    public void deleteUser(@PathVariable String username){
+        Optional<Users> temp = usersService.getUser(username);
+        usersRepository.delete(temp.get());
+//        usersRepository.deleteById(temp.get().getId());
     }
 
     @GetMapping(path = "/get/{username}")

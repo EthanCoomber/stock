@@ -20,7 +20,12 @@ class UserService {
     getUserInfo(username){
       let url = "/get/" + username;
       return axios.get(url);
-  }
+    }
+
+    deleteUserInfo(username){
+      let url = "/delete/" + username;
+      return axios.delete(url);
+    }
     
     async addTicker(ticker, userId) {
       console.log(ticker)

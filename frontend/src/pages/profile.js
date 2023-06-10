@@ -34,6 +34,12 @@ export default function Profile() {
     navigate(path);
   }
 
+  const deleteUser = () =>{ 
+    UserService.deleteUserInfo(username)
+    let path = `/`; 
+    navigate(path);
+  }
+
   const handleChange = (ticker) => {
     setTicker(ticker);
   };
@@ -157,6 +163,8 @@ export default function Profile() {
         <button class ='reg_button button_graph' onClick={() => {api_request(currGraphTick, '2022-01-01','2022-07-01')}}>Generate</button>
       
         <button class="button-38 button-2" onClick={routeChange}>Logout</button>
+
+        <button class="button-38 button-3" onClick={deleteUser}>Logout</button>
        
         <div className={active ? isActiveCSS : isNotActiveCSS}>
           {handleMessage()}
