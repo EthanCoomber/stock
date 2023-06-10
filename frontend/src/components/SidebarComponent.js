@@ -10,24 +10,26 @@ export default function SideBar(temp){
 
     // function setClicked = temp.setClicked
 
-    // console.log(tickers)
+    console.log(tickers)
 
     function renderTickers(){
-        const output = tickers.map(function(ticker){
-            return (
-            <span key={ticker} className='ticker'>
-                <div 
-                    
-                    key={ticker}
-                    tabIndex={ticker}
-                    onClick={() => temp.setClicked(ticker)}
-                >
-                    {ticker}
-                </div>
-            </span> 
-            )
-        })
-        return output
+        if(tickers){
+            const output = tickers.map(function(ticker){
+                return (
+                <span key={ticker} className='ticker'>
+                    <div 
+                        
+                        key={ticker}
+                        tabIndex={ticker}
+                        onClick={() => temp.setClicked(ticker)}
+                    >
+                        {ticker}
+                    </div>
+                </span> 
+                )
+            })
+            return output
+        }
     }
 
     return ( 
