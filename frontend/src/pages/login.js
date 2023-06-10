@@ -10,6 +10,26 @@ export default function Login() {
   const [currUsername, setUsername] = useState("");
   const [newUser, setNewUser] = useState({});
 
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+
+  function getCurrentDimension(){
+    return {
+        width: window.innerWidth,
+        height: window.innerHeight
+    }
+  }
+
+  useEffect(() => {
+      const updateDimension = () => {
+          setScreenSize(getCurrentDimension())
+      }
+      window.addEventListener('resize', updateDimension);
+  
+      return(() => {
+          window.removeEventListener('resize', updateDimension);
+      })
+  }, [screenSize])
+
   useEffect(() => {
     setNewUser({username: currUsername});
   }, [currUsername]);

@@ -90,6 +90,7 @@ input:focus::placeholder {
   position:absolute;
   top: 58%;
   left: 43.5%;
+  width: 13%;
 }
 
 .button-38:hover {
