@@ -90,7 +90,7 @@ input:focus::placeholder {
   position:absolute;
   top: 58%;
   left: 43.5%;
-  min-width: 8%;
+  min-width: 13%;
 }
 
 .button-38:hover {
@@ -105,11 +105,6 @@ input:focus::placeholder {
 .button-38:focus-visible {
   box-shadow: none;
 }
-/* 
-.button-39 {
-	top: 68%;
-	left: 62.5%;
-} */
 
 .button-2 {
 	background-color: rgb(35, 35, 35);
