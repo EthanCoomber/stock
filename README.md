@@ -10,7 +10,7 @@ Login page:
 
 
 Profile page:
-![Profile Image](mandelbrot-example.png)
+![Profile Image](./images/profile.png)
 
 ### References
 https://rapidapi.com/belchiorarkad-FqvHs2EDOtP/api/yh-finance-complete
