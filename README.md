@@ -9,10 +9,12 @@ Here is the deployed link
 https://stock-frontend-nine.vercel.app/
 
 Login page:
+<hr>
 ![Login Image](./images/login.png)
 
 
 Profile page:
+<hr>
 ![Profile Image](./images/profile.png)
 
 ### References
