@@ -8,14 +8,21 @@ Frontend: React
 Here is the deployed link
 https://stock-frontend-nine.vercel.app/
 
-Login page:
 <hr>
+<p align="center">
+Login page
+</p>
+
+
 ![Login Image](./images/login.png)
 
+<p align="center">
+Profile page
+</p>
 
-Profile page:
-<hr>
 ![Profile Image](./images/profile.png)
+
+<hr>
 
 ### References
 https://rapidapi.com/belchiorarkad-FqvHs2EDOtP/api/yh-finance-complete
