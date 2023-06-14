@@ -6,7 +6,7 @@ Backend: SpringBoot
 Frontend: React
 
 Login page:
-![Login Image](login.png)
+![Login Image](./images/login.png)
 
 
 Profile page:
@@ -21,3 +21,6 @@ React-vis for creating graphs
 
 https://getcssscan.com/css-buttons-examples
 Button
+
+https://morioh.com/p/xWmnEHhoWDqX
+Link that helped with deploying the backend to Heroku
