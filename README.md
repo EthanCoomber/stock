@@ -5,6 +5,9 @@ Database: PostgreSQL
 Backend: SpringBoot 
 Frontend: React
 
+Here is the deployed link
+https://stock-frontend-nine.vercel.app/
+
 Login page:
 ![Login Image](./images/login.png)
 
